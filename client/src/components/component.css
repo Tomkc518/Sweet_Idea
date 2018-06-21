@@ -1,0 +1,46 @@
+.jumbotron {
+    color: white;
+    font-family: 'Bonbon', cursive;
+    background-color: rgb(129,216,208);
+    font-size: 9rem !important;
+}
+h1 {
+    font-size: 9rem;
+}
+.display-1 {
+    font-size: 9rem;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: end;
+  }
+.nav-buttons {
+    min-width: 9rem;
+}
+.btn-outline-success {
+    color: rgb(129,216,208);
+    border-color: rgb(129,216,208);
+}
+.btn-outline-success:hover {
+    color: white;
+    background-color: rgb(129,216,208);
+    border-color: rgb(129,216,208);
+}
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+  .modal-closure {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .display-1 {
+        font-size: 6rem;
+    }
+    .nav-buttons {
+        margin-bottom: 8px;
+    }
+   
+}
