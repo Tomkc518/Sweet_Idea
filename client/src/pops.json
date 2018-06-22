@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Dazzle Pops",
+    "image": "https://i.pinimg.com/originals/29/dd/10/29dd10c39826d06be93cfaf2f0099f58.jpg",
+    "cost": 8,
+    "category": "pops"
+  },
+  {
+    "id": 2,
+    "name": "Sprinkle Pops",
+    "image": "http://pm1.narvii.com/6771/b2b127eb1985d444179633432d742e6e1dc28d46v2_00.jpg",
+    "cost": 8,
+    "category": "pops"
+  },
+  {
+    "id": 3,
+    "name": "Pinks Pops",
+    "image": "https://cdn.shopify.com/s/files/1/0790/3559/products/131_d26507a5-d5df-4451-a6ae-116f7e84fdf6.png?v=1503808248",
+    "cost": 8,
+    "category": "pops"
+  },
+  {
+    "id": 4,
+    "name": "Cherry Blossom Pops",
+    "image": "http://gesundheitswegweiser-elias.info/wp-content/uploads/2018/01/flower-cake-pops-these-flower-cake-pops-are-absolutely-stunning-and-would-be-a-perfect-match-for-a-how-to-make-flower-pot-cake-pops.jpg",
+    "cost": 8,
+    "category": "pops"
+  },
+  {
+    "id": 5,
+    "name": "Unicorn Pops",
+    "image": "https://cdn.notonthehighstreet.com/fs/ef/0f/888b-fc62-4fdc-9bed-8df5914330d2/normal_unicorn-party-cake-pops.jpg",
+    "cost": 8,
+    "category": "pops"
+  },
+  {
+    "id": 6,
+    "name": "Bouquet of Pops",
+    "image": "http://birthdaycakesideas.info/wp-content/uploads/2018/05/images-outstanding-inspiration-cake-pop-bouquet-incredible-ideas-and-best-pops-gift-for-any.jpg",
+    "cost": 8,
+    "category": "pops"
+  }
+]

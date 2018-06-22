@@ -7,6 +7,9 @@ import Header from './components/header';
 import NavButtons from './components/navigationbuttons';
 import ProductCategoryCard from './components/productCategoryCard';
 import Modal from 'react-modal';
+import pops from "./pops.json";
+import ImageBody from "./components/ImageBody"
+import Images from "./components/Images"
 
 // modal styles
 const customStyles = {
@@ -26,7 +29,9 @@ const customStyles = {
 class App extends Component {
 
   state = {
-    modalIsOpen: false
+    modalIsOpen: false,
+    products: [],
+    pops
   };
 
   // modal functions
@@ -37,6 +42,10 @@ class App extends Component {
   onCloseModal = () => {
     this.setState({ modalIsOpen: false });
   };
+
+  onCategoryPops = () => {
+    this.setState({products: this.state.pops});
+  }
 
 
 
@@ -50,8 +59,18 @@ class App extends Component {
       <div className="App">
         <Header />
         <NavButtons onOpenModal={this.onOpenModal} />
-        <ProductCategoryCard />
-
+        <ProductCategoryCard onCategoryPops={this.onCategoryPops}/>
+        <ImageBody>
+          {this.state.products.map(products => (
+            <Images
+              id={products.id}
+              key={products.id}
+              name={products.name}
+              image={products.image}
+              cost={products.cost}
+            />
+          ))}
+        </ImageBody>
 
         {/* <button onClick={this.onOpenModal}>Open Modal</button> */}
 
