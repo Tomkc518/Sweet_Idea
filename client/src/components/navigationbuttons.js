@@ -11,7 +11,7 @@ const NavButtons = (props) => {
         <div className="container">
             <div className="row">
             <div className="col-md-4 col-sm-4">
-                    <button onClick={() => props.onOpenModal} type="button" className="btn btn-outline-success nav-buttons">Signup / Login</button>
+                    <button onClick={() => props.onOpenModal()} type="button" className="btn btn-outline-success nav-buttons">Signup / Login</button>
                 </div>
                 <div className="col-md-4 col-sm-4">
                     <button type="button" className="btn btn-outline-success nav-buttons">About</button>

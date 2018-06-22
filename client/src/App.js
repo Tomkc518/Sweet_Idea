@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <NavButtons />
+        <NavButtons onOpenModal={this.onOpenModal} />
         <ProductCategoryCard />
 
 
