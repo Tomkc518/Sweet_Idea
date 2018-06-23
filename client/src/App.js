@@ -8,8 +8,12 @@ import NavButtons from './components/navigationbuttons';
 import ProductCategoryCard from './components/productCategoryCard';
 import Modal from 'react-modal';
 import pops from "./pops.json";
-import ImageBody from "./components/ImageBody"
-import Images from "./components/Images"
+import cupcakes from "./cupcakes.json";
+import cookies from "./cookies.json";
+import ImageBody from "./components/ImageBody";
+import Images from "./components/Images";
+
+
 
 // modal styles
 const customStyles = {
@@ -31,7 +35,9 @@ class App extends Component {
   state = {
     modalIsOpen: false,
     products: [],
-    pops
+    pops,
+    cupcakes,
+    cookies,
   };
 
   // modal functions
@@ -44,7 +50,13 @@ class App extends Component {
   };
 
   onCategoryPops = () => {
-    this.setState({products: this.state.pops});
+    this.setState({ products: this.state.pops });
+  }
+  onCategoryCupcakes = () => {
+    this.setState({ products: this.state.cupcakes });
+  }
+  onCategoryCookies = () => {
+    this.setState({ products: this.state.cookies });
   }
 
 
@@ -59,7 +71,10 @@ class App extends Component {
       <div className="App">
         <Header />
         <NavButtons onOpenModal={this.onOpenModal} />
-        <ProductCategoryCard onCategoryPops={this.onCategoryPops}/>
+
+        {/* I added cookies and cupcakes */}
+        <ProductCategoryCard onCategoryPops={this.onCategoryPops} onCategoryCookies={this.onCategoryCookies} onCategoryCupcakes={this.onCategoryCupcakes} />
+        {/* <hr /> add some styling here */}
         <ImageBody>
           {this.state.products.map(products => (
             <Images
@@ -74,7 +89,7 @@ class App extends Component {
 
         {/* <button onClick={this.onOpenModal}>Open Modal</button> */}
 
-      {/* ----------------------- MODAL COMPONENT ----------------------- */}
+        {/* ----------------------- MODAL COMPONENT ----------------------- */}
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
