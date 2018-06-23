@@ -1,8 +1,8 @@
 import React from 'react';
 // import { Jumbotron, Container } from 'reactstrap';
-import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
+// import ReactDOM from 'react-dom';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import AppBar from 'material-ui/AppBar';
 import './component.css';
 
 const Header = (props) => {
