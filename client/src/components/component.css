@@ -27,6 +27,15 @@ h1 {
     background-color: rgb(129,216,208);
     border-color: rgb(129,216,208);
 }
+.btn-primary {
+    background-color: rgb(233,143,197);
+    border-color: rgb(233,143,197);
+}
+.btn-primary:hover {
+    color: rgb(233,143,197);
+    background-color: white;
+    border-color: rgb(233,143,197);
+}
 .flex-container {
     display: flex;
     justify-content: space-between;
@@ -34,11 +43,20 @@ h1 {
   .modal-closure {
     cursor: pointer;
 }
-/* .category-card-style {
-    background-color: rgb(233,143,197);
-} */
 .card-image {
     height: 20rem;
+}
+.cost-style {
+    color: green;
+}
+.footer {
+    background-color: rgb(129,216,208);
+    height: 7rem;
+}
+.social-icons {
+    color: black;
+    font-size: 3rem;
+    line-height: 100px;
 }
 
 

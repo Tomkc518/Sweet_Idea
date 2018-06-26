@@ -4,6 +4,7 @@ import './App.css';
 // import './components';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from './components/header';
+import Footer from './components/footer';
 import NavButtons from './components/navigationbuttons';
 import ProductCategoryCard from './components/productCategoryCard';
 import Modal from 'react-modal';
@@ -83,6 +84,7 @@ class App extends Component {
               name={products.name}
               image={products.image}
               cost={products.cost}
+              description={products.description}
             />
           ))}
         </ImageBody>
@@ -137,6 +139,7 @@ class App extends Component {
             <button type="button" className="btn btn-primary mb-3">Signup</button>
           </form>
         </Modal>
+        <Footer />
       </div>
     );
   }
