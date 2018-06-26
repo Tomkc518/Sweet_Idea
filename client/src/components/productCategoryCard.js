@@ -15,8 +15,9 @@ const ProductCategoryCard = (props) => {
                         <div className="card-body">
                             <h4 className="card-title">Decadent Cupcakes</h4>
                             <p className="card-text">
-                                Some quick example text to build on the card title
-                                and make up the bulk of the card's content.
+                                Your customers will want to indulge 
+                                in these moist, crumbly cupcakes.
+
                 </p>
                             <a href="#!" className="btn btn-primary" onClick={() => props.onCategoryCupcakes()}>Go somewhere</a>
                         </div>
@@ -29,8 +30,8 @@ const ProductCategoryCard = (props) => {
                         <div className="card-body">
                             <h4 className="card-title">Delicious Cookies</h4>
                             <p className="card-text">
-                                Some quick example text to build on the card title
-                                and make up the bulk of the card's content.
+                                These cookies are perfect to go,
+                                but some will want to enjoy in store, bite by bite.
                 </p>
                             <a href="#!" className="btn btn-primary" onClick={() => props.onCategoryCookies()}>Go somewhere</a>
                         </div>
@@ -43,8 +44,8 @@ const ProductCategoryCard = (props) => {
                         <div className="card-body">
                             <h4 className="card-title">Poppable Cake Pops</h4>
                             <p className="card-text">
-                                Some quick example text to build on the card title
-                                and make up the bulk of the card's content.
+                                All the flavor, none of the mess.
+                                Customers with kids will thank you for it.
                 </p>
                             <a href="#!" className="btn btn-primary" onClick={() => props.onCategoryPops()}>Go somewhere</a>
                         </div>
