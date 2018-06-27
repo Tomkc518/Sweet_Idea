@@ -14,7 +14,11 @@ import cookies from "./cookies.json";
 import ImageBody from "./components/ImageBody";
 import Images from "./components/Images";
 
-
+//Authentication
+import { 
+  getFromStorage, 
+  setInStorage, 
+} from './components/utils/storage';
 
 // modal styles
 const customStyles = {
@@ -39,7 +43,133 @@ class App extends Component {
     pops,
     cupcakes,
     cookies,
+    //Authenication
+    isLoading: true,
+    token: '',
+    signUpError: '',
+    signInError: '',
+    signInEmail: '',
+    signInPassword: '',
+    signUpFirstName: '',
+    signUpLastName: '',
+    signUpEmail: '',
+    signUpPassword: ''
   };
+
+  componentDidMount() {
+    const token = getFromStorage('sweet_idea_app');
+    if (token) {
+      fetch('/api/account/verify?token=' + token)
+        .then(res => res.json())
+        .then(json => {
+          if (json.success) {
+            this.setState({
+              token,
+              isLoading: false
+            })
+          } else {
+            this.setState({
+              isLoading: false
+            })
+          }
+        })
+    } else {
+      this.setState({
+        isLoading: false,
+      })
+    }
+  };
+
+  //Authentication form
+  onTextboxChangeSignInEmail(event) {
+    this.setState({
+      signInEmail: event.target.value,
+    });
+  }
+
+  onTextboxChangeSignInPassword(event) {
+    this.setState({
+      signInPassword: event.target.value,
+    });
+  }
+
+  onTextboxChangeSignUpFirstName(event) {
+    this.setState({
+      signUpFirstName: event.target.value,
+    });
+  }
+
+  onTextboxChangeSignUpLastName(event) {
+    this.setState({
+      signUpLastName: event.target.value,
+    });
+  }
+
+  onTextboxChangeSignUpEmail(event) {
+    this.setState({
+      signUpEmail: event.target.value,
+    });
+  }
+
+  onTextboxChangeSignUpPassword(event) {
+    this.setState({
+      signUpPassword: event.target.value,
+    });
+  }
+
+  onSignUp() {
+    const {
+      signUpFirstName,
+      signUpLastName,
+      signUpEmail,
+      signUpPassword,
+    } = this.state;
+
+    this.setState({
+      isLoading: true,
+    })
+
+    fetch('api/account/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: signUpFirstName,
+        lastName: signUpLastName,
+        email: signUpEmail,
+        password: signUpPassword,
+      }),
+    }).then(res => res.json())
+      .then(json => {
+        if (json.success) {
+          this.setState({
+            signUpError: json.message,
+            isLoading: false, 
+          });
+          this.onCloseModal();
+        }else {
+          this.setState({
+            signUpError: json.message,
+            isLoading: false, 
+          });
+        }
+      });
+  }
+  
+  onSignIn() {
+
+  }
+
+  onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
+  onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
+  onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
+  onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
+  onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
+  onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
+  onSignIn = this.onSignIn.bind(this);
+  onSignUp = this.onSignUp.bind(this);
+
 
   // modal functions
   onOpenModal = () => {
@@ -60,14 +190,34 @@ class App extends Component {
     this.setState({ products: this.state.cookies });
   }
 
-
-
-
-
-
-
-
   render() {
+
+    const {
+      isLoading,
+      token,
+      signInError,
+      signUpError,
+      signInEmail,
+      signInPassword,
+      signUpFirstName,
+      signUpLastName,
+      signUpEmail,
+      signUpPassword,
+    } = this.state;
+
+    if (isLoading) {
+      return (<div><p>Loading...</p></div>);
+    }
+
+    /*if (!token) {
+      return (
+        <div>
+          <p>Sign up</p>
+          <p>Sign in</p>
+        </div>
+      );
+    }*/
+
     return (
       <div className="App">
         <Header />
@@ -97,46 +247,56 @@ class App extends Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal">
+          contentLabel="Login/Signup Modal">
 
           <div className="flex-container mb-4">
             <h2>Login</h2>
+            {
+              (signInError) ? (
+                <p>{signInError}</p>
+              ) : (null)
+            }
             <div className="modal-closure" onClick={this.onCloseModal}>x</div>
           </div>
 
           <form>
             <div className="form-group">
               <label for="formGroupExampleInput">Email</label>
-              <input type="email" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" />
+              <input type="email" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" value={signInEmail} onChange={this.onTextboxChangeSignInEmail} />
             </div>
             <div className="form-group">
               <label for="formGroupExampleInput2">Password</label>
-              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" />
+              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" value={signInPassword} onChange={this.onTextboxChangeSignInPassword} />
             </div>
-            <button type="button" className="btn btn-primary mb-3">Login</button>
+            <button type="button" className="btn btn-primary mb-3" onClick={this.onSignIn}>Login</button>
           </form>
           <hr />
 
 
           <h2>Signup</h2>
+          {
+              (signUpError) ? (
+                <p>{signUpError}</p>
+              ) : (null)
+            }
           <form>
             <div className="form-group">
               <label for="formGroupExampleInput">First Name</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your first name" />
+              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your first name" value={signUpFirstName} onChange={this.onTextboxChangeSignUpFirstName} />
             </div>
             <div className="form-group">
               <label for="formGroupExampleInput">Last Name</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your last name" />
+              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your last name" value={signUpLastName} onChange={this.onTextboxChangeSignUpLastName} />
             </div>
             <div className="form-group">
               <label for="formGroupExampleInput">Email</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" />
+              <input type="email" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" value={signUpEmail} onChange={this.onTextboxChangeSignUpEmail} />
             </div>
             <div className="form-group">
               <label for="formGroupExampleInput2">Password</label>
-              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" />
+              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" value={signUpPassword} onChange={this.onTextboxChangeSignUpPassword} />
             </div>
-            <button type="button" className="btn btn-primary mb-3">Signup</button>
+            <button type="button" className="btn btn-primary mb-3" onClick={this.onSignUp}>Signup</button>
           </form>
         </Modal>
         <Footer />
