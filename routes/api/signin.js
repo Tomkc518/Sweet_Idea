@@ -130,7 +130,8 @@ module.exports = (app) => {
 
       //Otherwise correct user
       const userSession = new UserSession();
-      userSession.userId = user._id;
+      userSession.userID = user._id;
+      userSession.user = user.firstName;
       userSession.save((err, doc) => {
         if (err) {
           return res.send({
@@ -142,7 +143,8 @@ module.exports = (app) => {
         return res.send({
           success: true,
           message: "Valid sign in",
-          token: doc._id
+          token: doc._id,
+          userName: doc.user
         });
       });
     });
