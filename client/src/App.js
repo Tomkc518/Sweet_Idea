@@ -249,6 +249,7 @@ class App extends Component {
           style={customStyles}
           contentLabel="Login/Signup Modal">
 
+
           <div className="flex-container mb-4">
             <h2>Login</h2>
             {
@@ -261,12 +262,19 @@ class App extends Component {
 
           <form>
             <div className="form-group">
-              <label for="formGroupExampleInput">Email</label>
-              <input type="email" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" value={signInEmail} onChange={this.onTextboxChangeSignInEmail} />
+              <label >Email</label>
+              <input type="email" className="form-control" placeholder="someone@example.com" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput2">Password</label>
-              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" value={signInPassword} onChange={this.onTextboxChangeSignInPassword} />
+              <label >Password</label>
+              <input type="password" className="form-control" placeholder="enter your password here" />
+
+              <label>Email</label>
+              <input type="email" className="form-control" placeholder="someone@example.com" value={signInEmail} onChange={this.onTextboxChangeSignInEmail} />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input type="password" className="form-control" placeholder="enter your password here" value={signInPassword} onChange={this.onTextboxChangeSignInPassword} />
             </div>
             <button type="button" className="btn btn-primary mb-3" onClick={this.onSignIn}>Login</button>
           </form>
@@ -281,20 +289,34 @@ class App extends Component {
             }
           <form>
             <div className="form-group">
-              <label for="formGroupExampleInput">First Name</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your first name" value={signUpFirstName} onChange={this.onTextboxChangeSignUpFirstName} />
+              <label>First Name</label>
+              <input type="text" placeholder="enter your first name" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput">Last Name</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your last name" value={signUpLastName} onChange={this.onTextboxChangeSignUpLastName} />
+              <label >Last Name</label>
+              <input type="text" className="form-control" placeholder="enter your last name" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput">Email</label>
-              <input type="email" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" value={signUpEmail} onChange={this.onTextboxChangeSignUpEmail} />
+              <label >Email</label>
+              <input type="text" className="form-control" placeholder="someone@example.com" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput2">Password</label>
-              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" value={signUpPassword} onChange={this.onTextboxChangeSignUpPassword} />
+              <label >Password</label>
+              <input type="password" className="form-control" placeholder="enter your password here" />
+              <label>First Name</label>
+              <input type="text" className="form-control" placeholder="enter your first name" value={signUpFirstName} onChange={this.onTextboxChangeSignUpFirstName} />
+            </div>
+            <div className="form-group">
+              <label">Last Name</label>
+              <input type="text" className="form-control" placeholder="enter your last name" value={signUpLastName} onChange={this.onTextboxChangeSignUpLastName} />
+            </div>
+            <div className="form-group">
+              <label>Email</label>
+              <input type="email" className="form-control" placeholder="someone@example.com" value={signUpEmail} onChange={this.onTextboxChangeSignUpEmail} />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input type="password" className="form-control" placeholder="enter your password here" value={signUpPassword} onChange={this.onTextboxChangeSignUpPassword} />
             </div>
             <button type="button" className="btn btn-primary mb-3" onClick={this.onSignUp}>Signup</button>
           </form>
@@ -306,3 +328,5 @@ class App extends Component {
 }
 
 export default App;
+
+// cut for="formGroupExampleInput2" from each label
