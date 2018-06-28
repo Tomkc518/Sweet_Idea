@@ -99,6 +99,7 @@ class App extends Component {
           style={customStyles}
           contentLabel="Example Modal">
 
+
           <div className="flex-container mb-4">
             <h2>Login</h2>
             <div className="modal-closure" onClick={this.onCloseModal}>x</div>
@@ -106,12 +107,12 @@ class App extends Component {
 
           <form>
             <div className="form-group">
-              <label for="formGroupExampleInput">Email</label>
-              <input type="email" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" />
+              <label >Email</label>
+              <input type="email" className="form-control" placeholder="someone@example.com" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput2">Password</label>
-              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" />
+              <label >Password</label>
+              <input type="password" className="form-control" placeholder="enter your password here" />
             </div>
             <button type="button" className="btn btn-primary mb-3">Login</button>
           </form>
@@ -121,20 +122,20 @@ class App extends Component {
           <h2>Signup</h2>
           <form>
             <div className="form-group">
-              <label for="formGroupExampleInput">First Name</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your first name" />
+              <label>First Name</label>
+              <input type="text" placeholder="enter your first name" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput">Last Name</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="enter your last name" />
+              <label >Last Name</label>
+              <input type="text" className="form-control" placeholder="enter your last name" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput">Email</label>
-              <input type="text" className="form-control" id="formGroupExampleInput" placeholder="someone@example.com" />
+              <label >Email</label>
+              <input type="text" className="form-control" placeholder="someone@example.com" />
             </div>
             <div className="form-group">
-              <label for="formGroupExampleInput2">Password</label>
-              <input type="password" className="form-control" id="formGroupExampleInput2" placeholder="enter your password here" />
+              <label >Password</label>
+              <input type="password" className="form-control" placeholder="enter your password here" />
             </div>
             <button type="button" className="btn btn-primary mb-3">Signup</button>
           </form>
@@ -146,3 +147,5 @@ class App extends Component {
 }
 
 export default App;
+
+// cut for="formGroupExampleInput2" from each label
