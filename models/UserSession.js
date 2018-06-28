@@ -5,6 +5,10 @@ const UserSessionSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  user: {
+    type: String,
+    default: ''
+  },
   timestamp: {
     type: Date,
     default: Date.now()

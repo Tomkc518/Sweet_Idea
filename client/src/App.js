@@ -46,6 +46,7 @@ class App extends Component {
     //Authenication
     isLoading: true,
     token: '',
+    userName: '',
     signUpError: '',
     signInError: '',
     signInEmail: '',
@@ -57,14 +58,17 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const token = getFromStorage('sweet_idea_app');
-    if (token) {
+    Modal.setAppElement('body');
+    const obj = getFromStorage('sweet_idea_app');
+    if (obj && obj.token && obj.userName) {
+      const { token, userName } = obj;
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
             this.setState({
               token,
+              userName,
               isLoading: false
             })
           } else {
@@ -145,7 +149,11 @@ class App extends Component {
         if (json.success) {
           this.setState({
             signUpError: json.message,
-            isLoading: false, 
+            isLoading: false,
+            signUpFirstName: '',
+            signUpLastName: '',
+            signUpEmail: '',
+            signUpPassword: '', 
           });
           this.onCloseModal();
         }else {
@@ -158,7 +166,44 @@ class App extends Component {
   }
   
   onSignIn() {
+    const {
+      signInEmail,
+      signInPassword,
+    } = this.state;
 
+    this.setState({
+      isLoading: true,
+    })
+
+    fetch('api/account/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: signInEmail,
+        password: signInPassword,
+      }),
+    }).then(res => res.json())
+      .then(json => {
+        if (json.success) {
+          setInStorage('sweet_idea_app', { token: json.token, userName: json.userName });
+          this.setState({
+            signInError: json.message,
+            isLoading: false, 
+            token: json.token,
+            userName: json.userName,
+            signInEmail: '',
+            signInPassword: '',
+          });
+          this.onCloseModal();
+        }else {
+          this.setState({
+            signInError: json.message,
+            isLoading: false, 
+          });
+        }
+      });
   }
 
   onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -194,7 +239,6 @@ class App extends Component {
 
     const {
       isLoading,
-      token,
       signInError,
       signUpError,
       signInEmail,
@@ -203,25 +247,17 @@ class App extends Component {
       signUpLastName,
       signUpEmail,
       signUpPassword,
+      userName = this.state.userName
     } = this.state;
 
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
 
-    /*if (!token) {
-      return (
-        <div>
-          <p>Sign up</p>
-          <p>Sign in</p>
-        </div>
-      );
-    }*/
-
     return (
       <div className="App">
         <Header />
-        <NavButtons onOpenModal={this.onOpenModal} />
+        <NavButtons onOpenModal={this.onOpenModal} userName={userName ? "Welcome, " + userName : "Signup / Login"} />
 
         {/* I added cookies and cupcakes */}
         <ProductCategoryCard onCategoryPops={this.onCategoryPops} onCategoryCookies={this.onCategoryCookies} onCategoryCupcakes={this.onCategoryCupcakes} />
@@ -262,13 +298,6 @@ class App extends Component {
 
           <form>
             <div className="form-group">
-              <label >Email</label>
-              <input type="email" className="form-control" placeholder="someone@example.com" />
-            </div>
-            <div className="form-group">
-              <label >Password</label>
-              <input type="password" className="form-control" placeholder="enter your password here" />
-
               <label>Email</label>
               <input type="email" className="form-control" placeholder="someone@example.com" value={signInEmail} onChange={this.onTextboxChangeSignInEmail} />
             </div>
@@ -283,26 +312,12 @@ class App extends Component {
 
           <h2>Signup</h2>
           {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
+            (signUpError) ? (
+              <p>{signUpError}</p>
+            ) : (null)
+          }
           <form>
             <div className="form-group">
-              <label>First Name</label>
-              <input type="text" placeholder="enter your first name" />
-            </div>
-            <div className="form-group">
-              <label >Last Name</label>
-              <input type="text" className="form-control" placeholder="enter your last name" />
-            </div>
-            <div className="form-group">
-              <label >Email</label>
-              <input type="text" className="form-control" placeholder="someone@example.com" />
-            </div>
-            <div className="form-group">
-              <label >Password</label>
-              <input type="password" className="form-control" placeholder="enter your password here" />
               <label>First Name</label>
               <input type="text" className="form-control" placeholder="enter your first name" value={signUpFirstName} onChange={this.onTextboxChangeSignUpFirstName} />
             </div>
