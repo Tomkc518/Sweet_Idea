@@ -307,7 +307,7 @@ class App extends Component {
               <input type="text" className="form-control" placeholder="enter your first name" value={signUpFirstName} onChange={this.onTextboxChangeSignUpFirstName} />
             </div>
             <div className="form-group">
-              <label">Last Name</label>
+              <label>Last Name</label>
               <input type="text" className="form-control" placeholder="enter your last name" value={signUpLastName} onChange={this.onTextboxChangeSignUpLastName} />
             </div>
             <div className="form-group">
