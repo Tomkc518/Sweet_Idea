@@ -10,7 +10,6 @@ h1 {
 .display-1 {
     font-size: 9rem;
 }
-
 .flex-container {
     display: flex;
     justify-content: end;
@@ -18,11 +17,11 @@ h1 {
 .nav-buttons {
     min-width: 9rem;
 }
-.btn-outline-success {
+.btn-outline-light {
     color: rgb(129,216,208);
     border-color: rgb(129,216,208);
 }
-.btn-outline-success:hover {
+.btn-outline-light:hover {
     color: white;
     background-color: rgb(129,216,208);
     border-color: rgb(129,216,208);
@@ -46,6 +45,9 @@ h1 {
 .card-image {
     height: 20rem;
 }
+.card {
+    height: 544px;
+}
 .cost-style {
     color: green;
 }
@@ -58,7 +60,13 @@ h1 {
     font-size: 3rem;
     line-height: 100px;
 }
+.add-to-shopping-cart-btn {
+    position: absolute;
+    left: 119px;
+    bottom: 20px;
 
+    
+}
 
 /* ----------MEDIA QUERIES---------- */
 

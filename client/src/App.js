@@ -216,6 +216,12 @@ class App extends Component {
   onSignUp = this.onSignUp.bind(this);
 
 
+  // shopping cart toggle 
+  toggleSideBar = () => {
+    console.log("toggled");
+    document.getElementById('sidebar').classList.toggle('active');
+  };
+
   // modal functions
   onOpenModal = () => {
     this.setState({ modalIsOpen: true });
@@ -225,6 +231,7 @@ class App extends Component {
     this.setState({ modalIsOpen: false });
   };
 
+  // category selection functions
   onCategoryPops = () => {
     this.setState({ products: this.state.pops });
   }
@@ -234,6 +241,7 @@ class App extends Component {
   onCategoryCookies = () => {
     this.setState({ products: this.state.cookies });
   }
+
 
   render() {
 
@@ -256,8 +264,17 @@ class App extends Component {
 
     return (
       <div className="App">
+
+      {/* ----------------------- SHOPPING CART COMPONENT ----------------------- */}
+        <div id="sidebar">
+          <div className="mt-4 shopping-cart-header">SHOPPING CART</div>
+          <button type="button" class="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
+
+          </div>
+
+      {/* ----------------------- END OF SHOPPING CART COMPONENT ----------------------- */}
         <Header />
-        <NavButtons onOpenModal={this.onOpenModal} userName={userName ? "Welcome, " + userName : "Signup / Login"} />
+        <NavButtons onOpenModal={this.onOpenModal} userName={userName ? "Welcome, " + userName : "Signup / Login"} toggleSideBar={this.toggleSideBar}/>
 
         {/* I added cookies and cupcakes */}
         <ProductCategoryCard onCategoryPops={this.onCategoryPops} onCategoryCookies={this.onCategoryCookies} onCategoryCupcakes={this.onCategoryCupcakes} />

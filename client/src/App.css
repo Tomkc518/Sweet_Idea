@@ -26,3 +26,45 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#sidebar {
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  height: 100%;
+  background-color: rgb(253,179,155);
+  width: 300px;
+  position: fixed;
+  right: -400px;
+  z-index: 1;
+  opacity: .9;
+  transition: all 350ms linear;
+}
+#sidebar.active {
+  right: 0px;
+}
+.shopping-cart-header {
+  font-size: 3rem;
+}
+.checkout-button {
+  width: 75%;
+  background-color: rgb(129,216,208);
+  color: white !important;
+  font-size: 2rem;
+  position: absolute;
+  top: 700px;
+  left: 40px;
+}
+
+/* --------------------MEDIA QUERIES-------------------- */
+@media only screen and (max-width: 600px) {
+  #sidebar {
+    width: 50%;
+  }
+  .shopping-cart-header {
+    font-size: 2rem;
+  }
+  .checkout-button {
+    top: 550px;
+    left: 23px;
+  }
+}
