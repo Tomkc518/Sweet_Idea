@@ -15,9 +15,9 @@ import ImageBody from "./components/ImageBody";
 import Images from "./components/Images";
 
 //Authentication
-import { 
-  getFromStorage, 
-  setInStorage, 
+import {
+  getFromStorage,
+  setInStorage,
 } from './components/utils/storage';
 
 // modal styles
@@ -153,18 +153,18 @@ class App extends Component {
             signUpFirstName: '',
             signUpLastName: '',
             signUpEmail: '',
-            signUpPassword: '', 
+            signUpPassword: '',
           });
           this.onCloseModal();
-        }else {
+        } else {
           this.setState({
             signUpError: json.message,
-            isLoading: false, 
+            isLoading: false,
           });
         }
       });
   }
-  
+
   onSignIn() {
     const {
       signInEmail,
@@ -190,17 +190,17 @@ class App extends Component {
           setInStorage('sweet_idea_app', { token: json.token, userName: json.userName });
           this.setState({
             signInError: json.message,
-            isLoading: false, 
+            isLoading: false,
             token: json.token,
             userName: json.userName,
             signInEmail: '',
             signInPassword: '',
           });
           this.onCloseModal();
-        }else {
+        } else {
           this.setState({
             signInError: json.message,
-            isLoading: false, 
+            isLoading: false,
           });
         }
       });
@@ -265,16 +265,39 @@ class App extends Component {
     return (
       <div className="App">
 
-      {/* ----------------------- SHOPPING CART COMPONENT ----------------------- */}
-        <div id="sidebar">
+        {/* ----------------------- SHOPPING CART COMPONENT ----------------------- */}
+        <div id="sidebar" className="">
           <div className="mt-4 shopping-cart-header">SHOPPING CART</div>
-          <button type="button" class="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
-
+          <div className="shopping-cart-item pb-3">
+            <span><img className='shopping-cart-image mr-4' src="https://www.deleukstetaartenshop.com/media/catalog/product/cache/2/image/200x180/08f5bd1ea19936551f6f0408f06686e9/p/a/pastel-kerst-koekjes_1.jpg" alt="some product"/>
+            <span>Cookie Selected</span>
+            <span>
+            <form action="/action_page.php" className="quantity-selector">
+              <select name="qunatity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </form>
+            </span>
+            </span>
           </div>
+          <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
 
-      {/* ----------------------- END OF SHOPPING CART COMPONENT ----------------------- */}
+        </div>
+
+        {/* ----------------------- END OF SHOPPING CART COMPONENT ----------------------- */}
         <Header />
-        <NavButtons onOpenModal={this.onOpenModal} userName={userName ? "Welcome, " + userName : "Signup / Login"} toggleSideBar={this.toggleSideBar}/>
+        <NavButtons onOpenModal={this.onOpenModal} userName={userName ? "Welcome, " + userName : "Signup / Login"} toggleSideBar={this.toggleSideBar} />
 
         {/* I added cookies and cupcakes */}
         <ProductCategoryCard onCategoryPops={this.onCategoryPops} onCategoryCookies={this.onCategoryCookies} onCategoryCupcakes={this.onCategoryCupcakes} />

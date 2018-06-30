@@ -44,6 +44,17 @@
 }
 .shopping-cart-header {
   font-size: 3rem;
+  margin-bottom: 10%;
+}
+.shopping-cart-item {
+  width: 85%;
+  /* background-color: purple; */
+  margin-left: 8%;
+  border-bottom: 1px solid rgb(219, 218, 218);
+}
+.shopping-cart-image {
+  height: 60px;
+  width: 60px;
 }
 .checkout-button {
   width: 75%;
@@ -54,6 +65,15 @@
   top: 700px;
   left: 40px;
 }
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+.quantity-selector {
+  display: inline;
+  margin-left: 4%;
+}
+
 
 /* --------------------MEDIA QUERIES-------------------- */
 @media only screen and (max-width: 600px) {
@@ -66,5 +86,13 @@
   .checkout-button {
     top: 550px;
     left: 23px;
+  }
+  .shopping-cart-image {
+    height: 22px;
+    width: 22px;
+  }
+  
+  .quantity-selector {
+    background-color: white;
   }
 }
