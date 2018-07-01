@@ -13,6 +13,8 @@ import cupcakes from "./cupcakes.json";
 import cookies from "./cookies.json";
 import ImageBody from "./components/ImageBody";
 import Images from "./components/Images";
+import Stripe from './components/Stripe/Stripe.js';
+
 
 //Authentication
 import {
@@ -292,6 +294,7 @@ class App extends Component {
             </span>
           </div>
           <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
+          <Stripe />
 
         </div>
 
@@ -376,6 +379,7 @@ class App extends Component {
             <button type="button" className="btn btn-primary mb-3" onClick={this.onSignUp}>Signup</button>
           </form>
         </Modal>
+
         <Footer />
       </div>
     );
