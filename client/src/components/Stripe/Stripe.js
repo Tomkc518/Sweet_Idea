@@ -19,7 +19,8 @@ const Stripe = (props) => {
                 <main>
                   <section className="container-lg">
                     <div className="cell example example2">
-                      <h1>Sweet Idea Payment Card</h1>
+                    <h1>Payment Information</h1>
+                    <hr></hr>
                       <form>
                         <div data-locale-reversible>
                           <div className="row">
