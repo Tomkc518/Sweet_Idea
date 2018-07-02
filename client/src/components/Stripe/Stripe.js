@@ -1,26 +1,47 @@
-//sets up the reusable Jumbotron component
-import React from "react";
+import React from 'react';
+import Modal, {closeStyle} from 'simple-react-modal';
 import "./Stripe.css";
-// import "./element.js";
-import "./local.js";
+export default class Stripe extends React.Component{
+
+  constructor(){
+    super()
+    this.state = {}
+  }
+
+  show(){
+    this.setState({show: true})
+  }
+
+  close(){
+    this.setState({show: false})
+  }
+
+
+  render(){
+    return (
+      <div>
+
+
+        
+      <a className="btn btn-outline-light stripe-button"  onClick={this.show.bind(this)}>Stripe</a>
+      <Modal
+      
+      
+      
+      containerClassName="test"
+      closeOnOuterClick={true}
+      show={this.state.show}
+      onClose={this.close.bind(this)}>
+
+      <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
 
 
 
-const Stripe = (props) => {
-      return (
-  
-        // <div className="container">
-        //   {/* Trigger the modal with a button */}
-        //   <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-        //   {/* Modal */}
-        //   <div className="modal fade" id="myModal" role="dialog">
-        //     <div className="modal-dialog">
-              <div className="globalContent">
+<div className="globalContent">
                 <main>
                   <section className="container-lg">
                     <div className="cell example example2">
-                    <h1>Payment Information</h1>
-                    <hr></hr>
+                      <h1>Payment Information</h1>
                       <form>
                         <div data-locale-reversible>
                           <div className="row">
@@ -96,13 +117,8 @@ const Stripe = (props) => {
                       </div>
                     </div>
                   </section></main></div>
-        //     </div>
-        //   </div>
-        // </div>
-      );
-    }
-
-
-
-
-export default Stripe;
+      </Modal>
+      </div>
+    )
+  }
+}

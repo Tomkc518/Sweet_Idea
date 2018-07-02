@@ -13,7 +13,7 @@ import cupcakes from "./cupcakes.json";
 import cookies from "./cookies.json";
 import ImageBody from "./components/ImageBody";
 import Images from "./components/Images";
-import Stripe from './components/Stripe/Stripe.js';
+import Stripe from './components/Stripe';
 
 
 //Authentication
@@ -294,8 +294,8 @@ class App extends Component {
             </span>
           </div>
           <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
-          <Stripe />
 
+          <Stripe />
         </div>
 
         {/* ----------------------- END OF SHOPPING CART COMPONENT ----------------------- */}
@@ -387,5 +387,3 @@ class App extends Component {
 }
 
 export default App;
-
-// cut for="formGroupExampleInput2" from each label
