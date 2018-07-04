@@ -13,7 +13,7 @@ import cupcakes from "./cupcakes.json";
 import cookies from "./cookies.json";
 import ImageBody from "./components/ImageBody";
 import Images from "./components/Images";
-import Stripe from './components/Stripe';
+import Stripe from './components/Stripe/Stripe.js';
 
 
 //Authentication
@@ -45,6 +45,7 @@ class App extends Component {
     pops,
     cupcakes,
     cookies,
+    cart: [],
     //Authenication
     isLoading: true,
     token: '',
@@ -85,6 +86,20 @@ class App extends Component {
       })
     }
   };
+
+  // Add to cart
+
+  addItemToCart = (name, image) => {
+    if (this.state.token !== '') {
+      this.state.cart.push({
+        name: name,
+        image: image
+      });
+      console.log(this.state.cart);
+    } else {
+      this.onOpenModal();
+    }
+  }
 
   //Authentication form
   onTextboxChangeSignInEmail(event) {
@@ -308,6 +323,7 @@ class App extends Component {
         <ImageBody>
           {this.state.products.map(products => (
             <Images
+              addItemToCart={this.addItemToCart}
               id={products.id}
               key={products.id}
               name={products.name}
