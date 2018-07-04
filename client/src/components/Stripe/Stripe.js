@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal, {closeStyle} from 'simple-react-modal';
-import "./Stripe.css";
+// import "./Stripe.css";
 export default class Stripe extends React.Component{
 
   constructor(){
