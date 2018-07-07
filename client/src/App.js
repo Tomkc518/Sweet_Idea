@@ -89,32 +89,51 @@ class App extends Component {
   };
 
   // Add to cart
-
-  // create func to map over items in array and call func after the push
-  // addItemToCart = (name, image) => {
-  //   if (this.state.token !== '') {
-  //     this.state.cart.push({
-  //       name: name,
-  //       image: image
-  //     });
-  //     console.log(this.state.cart);
-  //   } else {
-  //     this.onOpenModal();
-  //   }
-  // }
-
-  addItemToCart = (name, image) => {
-    if(this.state.token !== '') {
-      this.setState({ cart: this.state.cart.push({
-        name: name,
-        image: image
-      })
-     });
-     console.log(this.state.cart);
+  cartItems = [];
+  itemName = [];
+  //create func to map over items in array and call func after the push
+  addItemToCart = (name, image, id) => {
+    if (this.state.token !== '') {
+        if(this.cartItems.length === 0){
+            this.cartItems.push({
+              name: name,
+              image: image,
+              key: id
+            });
+            this.itemName.push(name);
+            console.log(this.itemName);
+          } else if(this.cartItems.length > 0){
+            //for (var i = 0; i < this.cartItems.length; i++){
+              if (this.itemName.indexOf(name) === -1){
+                this.cartItems.push({
+                  name: name,
+                  image: image,
+                  key: id
+                });
+                this.itemName.push(name);
+                console.log(this.itemName);
+              }
+           // }
+        }
+        this.setState({ cart: this.cartItems });
+        console.log(this.cartItems);
     } else {
       this.onOpenModal();
     }
   }
+
+  // addItemToCart = (name, image) => {
+  //   if(this.state.token !== '') {
+  //     this.setState({ cart: this.state.cart.push({
+  //       name: name,
+  //       image: image
+  //     })
+  //    });
+  //    console.log(this.state.cart);
+  //   } else {
+  //     this.onOpenModal();
+  //   }
+  // }
 
 
   //Authentication form
@@ -288,7 +307,7 @@ class App extends Component {
       signUpLastName,
       signUpEmail,
       signUpPassword,
-      userName = this.state.userName
+      userName
     } = this.state;
 
     if (isLoading) {
@@ -309,10 +328,11 @@ class App extends Component {
 
             {this.state.cart.map(cart => (
               <CartItem
-                // name={cart.name}
-                // image={cart.image}
-                // src={cart.image}
-                // alt={cart.alt}
+                name={cart.name}
+                image={cart.image}
+                src={cart.image}
+                alt={cart.alt}
+                key={cart.key}
               />
             ))}
          
