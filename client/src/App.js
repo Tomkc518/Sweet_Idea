@@ -14,7 +14,7 @@ import cookies from "./cookies.json";
 import ImageBody from "./components/ImageBody";
 import CartItem from "./components/cartItem";
 import Images from "./components/Images";
-import Stripe from './components/Stripe/Stripe.js';
+import Checkout from './Checkout';
 
 
 //Authentication
@@ -37,6 +37,10 @@ const customStyles = {
     overflow: 'scroll'
   }
 };
+
+
+
+
 
 class App extends Component {
 
@@ -296,6 +300,7 @@ class App extends Component {
     }
 
     return (
+          // <StripeProvider apiKey="pk_test_dnDzNRnVhvOjUBIdqaxeg6rI">
       <div className="App">
 
         {/* ----------------------- SHOPPING CART COMPONENT ----------------------- */}
@@ -321,9 +326,22 @@ class App extends Component {
           
           
           <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
+        
 
-          <Stripe />
+         <Checkout 
+            name={'Submit Payment'}
+            description={'Sweet Idea Confectionaries'}
+            amount={1}
+          />
         </div>
+
+
+          {/* <Checkout
+            name={'Submit Payment'}
+            description={'Sweet Idea Confectionaries'}
+            amount={1}
+          />
+        </div> */}
 
         {/* ----------------------- END OF SHOPPING CART COMPONENT ----------------------- */}
 
@@ -412,6 +430,8 @@ class App extends Component {
 
         <Footer />
       </div>
+          // </StripeProvider>
+
     );
   }
 }

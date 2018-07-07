@@ -1,5 +1,4 @@
-
-const stripe = require('../constants/stripe');
+const stripe = require('../../constants/stripe');
 
 const postStripeCharge = res => (stripeErr, stripeRes) => {
   if (stripeErr) {
@@ -9,7 +8,10 @@ const postStripeCharge = res => (stripeErr, stripeRes) => {
   }
 }
 
-const paymentApi = app => {
+
+
+
+module.exports = (app) => {
   app.get('/', (req, res) => {
     res.send({ message: 'Hello Stripe checkout server!', timestamp: new Date().toISOString() })
   });
@@ -17,8 +19,4 @@ const paymentApi = app => {
   app.post('/', (req, res) => {
     stripe.charges.create(req.body, postStripeCharge(res));
   });
-
-  return app;
-};
-
-module.exports = paymentApi;
+}
