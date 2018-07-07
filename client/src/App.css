@@ -73,6 +73,32 @@
   display: inline;
   margin-left: 4%;
 }
+/* .divider {
+  width: 85%;
+  border-color: rgb(233,143,197);
+  border-width: 2px;
+} */
+#divider {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: rgb(233,143,197);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    width: 85%;
+    opacity: .7;
+}
+#divider:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: rgb(233,143,197);
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+    
+}
 
 
 /* --------------------MEDIA QUERIES-------------------- */

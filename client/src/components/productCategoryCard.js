@@ -19,7 +19,7 @@ const ProductCategoryCard = (props) => {
                                 in these moist, crumbly cupcakes.
 
                 </p>
-                            <a href="#!" className="btn btn-primary" onClick={() => props.onCategoryCupcakes()}>Go somewhere</a>
+                            <a href="#!" className="btn btn-primary category-btn" onClick={() => props.onCategoryCupcakes()}>Cupcake Me!</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ const ProductCategoryCard = (props) => {
                                 These cookies are perfect to go,
                                 but some will want to enjoy in store, bite by bite.
                 </p>
-                            <a href="#!" className="btn btn-primary" onClick={() => props.onCategoryCookies()}>Go somewhere</a>
+                            <a href="#!" className="btn btn-primary category-btn" onClick={() => props.onCategoryCookies()}>Cookie Time!</a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const ProductCategoryCard = (props) => {
                                 All the flavor, none of the mess.
                                 Customers with kids will thank you for it.
                 </p>
-                            <a href="#!" className="btn btn-primary" onClick={() => props.onCategoryPops()}>Go somewhere</a>
+                            <a href="#!" className="btn btn-primary category-btn" onClick={() => props.onCategoryPops()}>Pop It!</a>
                         </div>
                     </div>
                 </div>
