@@ -14,7 +14,7 @@ const Images = props => (
                     {props.description}
                 </p>
                 <div className="cost-style mb-3">${props.cost} per dozen</div>
-                <a href="#!" className="btn btn-primary add-to-shopping-cart-btn" onClick={() => props.addItemToCart(props.name, props.image)}>Add to Cart</a>
+                <a href="#!" className="btn btn-primary add-to-shopping-cart-btn" onClick={() => props.addItemToCart(props.name, props.image, props.id)}>Add to Cart</a>
             </div>
         </div>
     </div>
