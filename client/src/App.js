@@ -12,6 +12,7 @@ import pops from "./pops.json";
 import cupcakes from "./cupcakes.json";
 import cookies from "./cookies.json";
 import ImageBody from "./components/ImageBody";
+import CartItem from "./components/cartItem";
 import Images from "./components/Images";
 import Stripe from './components/Stripe/Stripe.js';
 
@@ -89,17 +90,32 @@ class App extends Component {
 
   // Add to cart
 
+  // create func to map over items in array and call func after the push
+  // addItemToCart = (name, image) => {
+  //   if (this.state.token !== '') {
+  //     this.state.cart.push({
+  //       name: name,
+  //       image: image
+  //     });
+  //     console.log(this.state.cart);
+  //   } else {
+  //     this.onOpenModal();
+  //   }
+  // }
+
   addItemToCart = (name, image) => {
-    if (this.state.token !== '') {
-      this.state.cart.push({
+    if(this.state.token !== '') {
+      this.setState({ cart: this.state.cart.push({
         name: name,
         image: image
-      });
-      console.log(this.state.cart);
+      })
+     });
+     console.log(this.state.cart);
     } else {
       this.onOpenModal();
     }
   }
+
 
   //Authentication form
   onTextboxChangeSignInEmail(event) {
@@ -284,42 +300,40 @@ class App extends Component {
 
         {/* ----------------------- SHOPPING CART COMPONENT ----------------------- */}
         <div id="sidebar" className="">
+        {/* need to position and make x functional */}
+        <div className="drawer-close">x</div> 
           <div className="mt-4 shopping-cart-header">SHOPPING CART</div>
-          <div className="shopping-cart-item pb-3">
-            <span><img className='shopping-cart-image mr-4' src="https://www.deleukstetaartenshop.com/media/catalog/product/cache/2/image/200x180/08f5bd1ea19936551f6f0408f06686e9/p/a/pastel-kerst-koekjes_1.jpg" alt="some product"/>
-            <span>Cookie Selected</span>
-            <span>
-            <form action="/action_page.php" className="quantity-selector">
-              <select name="qunatity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-            </form>
-            </span>
-            </span>
-          </div>
+
+          
+
+
+            {this.state.cart.map(cart => (
+              <CartItem
+                // name={cart.name}
+                // image={cart.image}
+                // src={cart.image}
+                // alt={cart.alt}
+              />
+            ))}
+         
+
+
+          
+          
           <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
 
           <Stripe />
         </div>
 
         {/* ----------------------- END OF SHOPPING CART COMPONENT ----------------------- */}
+
+
         <Header />
         <NavButtons onOpenModal={this.onOpenModal} userName={userName ? "Welcome, " + userName : "Signup / Login"} toggleSideBar={this.toggleSideBar} />
 
         {/* I added cookies and cupcakes */}
         <ProductCategoryCard onCategoryPops={this.onCategoryPops} onCategoryCookies={this.onCategoryCookies} onCategoryCupcakes={this.onCategoryCupcakes} />
-        {/* <hr /> add some styling here */}
+        <hr id="divider" className="mb-4"/>
         <ImageBody>
           {this.state.products.map(products => (
             <Images
