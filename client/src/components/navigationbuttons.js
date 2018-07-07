@@ -10,7 +10,7 @@ const NavButtons = (props) => {
         <div className="container">
             <div className="row">
             <div className="col-md-4 col-sm-4">
-                    <button onClick={() => props.onOpenModal()} type="button" className="btn btn-outline-light nav-buttons" active="none">{props.userName}</button>
+                    <button onClick={() => props.onLogout()} type="button" className="btn btn-outline-light nav-buttons" active="none">{props.userName}</button>
                 </div>
                 <div className="col-md-4 col-sm-4">
                 <a href="mailto:sweetideabakery@gmail.com">

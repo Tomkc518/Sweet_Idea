@@ -107,7 +107,6 @@ class App extends Component {
             this.itemName.push(name);
             console.log(this.itemName);
           } else if(this.cartItems.length > 0){
-            //for (var i = 0; i < this.cartItems.length; i++){
               if (this.itemName.indexOf(name) === -1){
                 this.cartItems.push({
                   name: name,
@@ -117,7 +116,6 @@ class App extends Component {
                 this.itemName.push(name);
                 console.log(this.itemName);
               }
-           // }
         }
         this.setState({ cart: this.cartItems });
         console.log(this.cartItems);
@@ -125,20 +123,6 @@ class App extends Component {
       this.onOpenModal();
     }
   }
-
-  // addItemToCart = (name, image) => {
-  //   if(this.state.token !== '') {
-  //     this.setState({ cart: this.state.cart.push({
-  //       name: name,
-  //       image: image
-  //     })
-  //    });
-  //    console.log(this.state.cart);
-  //   } else {
-  //     this.onOpenModal();
-  //   }
-  // }
-
 
   //Authentication form
   onTextboxChangeSignInEmail(event) {
@@ -262,6 +246,37 @@ class App extends Component {
       });
   }
 
+  onLogout(){
+    if (this.state.token === ''){
+      this.onOpenModal();
+    }else {
+      const obj = getFromStorage('sweet_idea_app');
+      if (obj && obj.token) {
+        const { token } = obj;
+        fetch('/api/account/logout?token=' + token)
+          .then(res => res.json())
+          .then(json => {
+            if (json.success) {
+              this.setState({
+                token: '',
+                userName: '',
+                isLoading: false
+              })
+            } else {
+              this.setState({
+                isLoading: false
+              })
+            }
+          })
+      } else {
+        this.setState({
+          isLoading: false,
+        })
+      }
+    }
+  };
+
+
   onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
   onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
   onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
@@ -270,6 +285,7 @@ class App extends Component {
   onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
   onSignIn = this.onSignIn.bind(this);
   onSignUp = this.onSignUp.bind(this);
+  onLogout = this.onLogout.bind(this);
 
 
   // shopping cart toggle 
@@ -367,7 +383,7 @@ class App extends Component {
 
 
         <Header />
-        <NavButtons onOpenModal={this.onOpenModal} userName={userName ? "Welcome, " + userName : "Signup / Login"} toggleSideBar={this.toggleSideBar} />
+        <NavButtons onLogout={this.onLogout} userName={userName ? "Logout" : "Signup / Login"} toggleSideBar={this.toggleSideBar} />
 
         {/* I added cookies and cupcakes */}
         <ProductCategoryCard onCategoryPops={this.onCategoryPops} onCategoryCookies={this.onCategoryCookies} onCategoryCupcakes={this.onCategoryCupcakes} />
