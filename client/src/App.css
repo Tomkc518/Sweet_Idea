@@ -62,7 +62,7 @@
   color: white !important;
   font-size: 2rem;
   position: absolute;
-  top: 500px;
+  top: 85%;
   left: 40px;
 }
 .btn:focus,.btn:active {
@@ -72,6 +72,12 @@
 .quantity-selector {
   display: inline;
   margin-left: 4%;
+}
+.drawer-close {
+  position: fixed;
+  margin-left: 1rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
 }
 /* .divider {
   width: 85%;

@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Cookie Bows",
     "image": "https://www.deleukstetaartenshop.com/media/catalog/product/cache/2/image/200x180/08f5bd1ea19936551f6f0408f06686e9/p/a/pastel-kerst-koekjes_1.jpg",
-    "cost": 7,
+    "cost": 12,
     "category": "cookies",
     "description": "The perfect treat for any holiday or festivity."
 
@@ -12,7 +12,7 @@
     "id": 2,
     "name": "Golden Paisley",
     "image": "https://i.pinimg.com/736x/51/db/f4/51dbf4e1493d059dafbe5c54f18253fa--fancy-cookies-sugar-cookies.jpg",
-    "cost": 7,
+    "cost": 12,
     "category": "cookies",
     "description": "Extravagant look, decadent taste."
 
@@ -21,7 +21,7 @@
     "id": 3,
     "name": "Decorated Hearts",
     "image": "https://cdn-img-0.wanelo.com/p/846/eab/449/67f6857eb6bdd2c9087a5a3/x354-q80.jpg",
-    "cost": 7,
+    "cost": 12,
     "category": "cookies",
     "description": "You'll <3 These flavorful cookies."
 
@@ -30,7 +30,7 @@
     "id": 4,
     "name": "Macarons",
     "image": "https://jerlynfoodfanatic.files.wordpress.com/2016/12/fb_img_1481536115790.jpg",
-    "cost": 7,
+    "cost": 12,
     "category": "cookies",
     "description": "These tie-dyed Macarons will give you a trip."
 
@@ -39,7 +39,7 @@
     "id": 5,
     "name": "Spring Time",
     "image": "https://s-media-cache-ak0.pinimg.com/originals/e9/d6/19/e9d619a898623f6d658a1fc283361d30.jpg",
-    "cost": 7,
+    "cost": 12,
     "category": "cookies",
     "description": "Sink your teeth into these nature-inspired treats."
 
@@ -48,7 +48,7 @@
     "id": 6,
     "name": "Alfajores",
     "image": "https://i.pinimg.com/originals/17/e1/c3/17e1c3c179a6e6882bc03d19b63ddb55.jpg",
-    "cost": 7,
+    "cost": 12,
     "category": "cookies",
     "description": "Make these confectios from the Southern Hemisphere part of your snack routine."
 

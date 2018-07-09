@@ -341,7 +341,7 @@ class App extends Component {
         {/* ----------------------- SHOPPING CART COMPONENT ----------------------- */}
         <div id="sidebar" className="">
         {/* need to position and make x functional */}
-        <div className="drawer-close">x</div> 
+        <div className="drawer-close" onClick={this.toggleSideBar}>x</div> 
           <div className="mt-4 shopping-cart-header">SHOPPING CART</div>
 
           
