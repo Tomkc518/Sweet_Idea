@@ -1,4 +1,2 @@
 node_modules
-
-
-constants/stripe.js
+.env
