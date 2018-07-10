@@ -1,8 +1,10 @@
-// import { REACT_APP_PK_LIVE, REACT_APP_PK_TEST} from '../../env'
+require('dotenv').config();
 
 
 const STRIPE_PUBLISHABLE = process.env.NODE_ENV === 'production'
-  ? 'xxxxxxxxxx'
-  : 'xxxxxxxxxx'
+  
+?  'pk_live_JrYt2VT6MO6JMnXhEuxbkJQ3'
+: 'pk_test_dnDzNRnVhvOjUBIdqaxeg6rI'
+
 
 export default STRIPE_PUBLISHABLE;

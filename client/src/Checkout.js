@@ -46,7 +46,5 @@ const Checkout = ({ name, description, amount }) =>
     currency={CURRENCY}
     stripeKey={STRIPE_PUBLISHABLE}
   />
-  {
-  console.log(STRIPE_PUBLISHABLE)
-  }
+
 export default Checkout;
