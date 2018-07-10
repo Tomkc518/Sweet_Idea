@@ -13,7 +13,6 @@
     "react-addons-transition-group": "^15.6.2",
     "react-dom": "^16.4.1",
     "react-modal": "^3.4.5",
-    "react-scripts": "1.1.4",
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.0"
   },
@@ -24,7 +23,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-scripts": "1.1.4",
     "simple-react-modal": "^0.5.1"
   }
 }
