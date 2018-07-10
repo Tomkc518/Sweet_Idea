@@ -1,10 +1,10 @@
 
 const configureStripe = require('stripe');
-import { REACT_APP_SK_LIVE, REACT_APP_SK_TEST } from '.env'
+// import {} from '../env';
 
 const STRIPE_SECRET_KEY = process.env.NODE_ENV === 'production'
-    ? REACT_APP_SK_LIVE
-    : REACT_APP_SK_TEST;
+? 'xxxxxxxxxx'
+: 'xxxxxxxxxx'
 
 const stripe = configureStripe(STRIPE_SECRET_KEY);
 
