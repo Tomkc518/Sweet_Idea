@@ -1,10 +1,11 @@
+require('dotenv').config();
 
 const configureStripe = require('stripe');
-// import {} from '../env';
 
 const STRIPE_SECRET_KEY = process.env.NODE_ENV === 'production'
-? 'xxxxxxxxxx'
-: 'xxxxxxxxxx'
+? process.env.REACT_APP_SK_LIVE
+: process.env.REACT_APP_SK_TEST
+
 
 const stripe = configureStripe(STRIPE_SECRET_KEY);
 
