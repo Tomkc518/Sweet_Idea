@@ -24,8 +24,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "simple-react-modal": "^0.5.1",
-    "react-scripts": "1.1.4"
-
+    "react-scripts": "1.1.4",
+    "simple-react-modal": "^0.5.1"
   }
 }
