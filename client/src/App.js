@@ -231,7 +231,7 @@ class App extends Component {
         email: signInEmail,
         password: signInPassword,
       }),
-    }).then(res => res.json())
+    }).then(res => {res.json()})
       .then(json => {
         if (json.success) {
           setInStorage('sweet_idea_app', { token: json.token, userName: json.userName });
