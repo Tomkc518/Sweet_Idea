@@ -23,7 +23,8 @@
     "image": "https://cdn.shopify.com/s/files/1/0790/3559/products/131_d26507a5-d5df-4451-a6ae-116f7e84fdf6.png?v=1503808248",
     "cost": 12,
     "category": "pops",
-    "description": "Pinkalicious. Delicious. Not Very Nutritious."
+    "description": "Pinkalicious. Delicious. Not Very Nutritious.",
+    "quantity": 0
   },
   {
     "id": 4,
@@ -31,8 +32,8 @@
     "image": "http://gesundheitswegweiser-elias.info/wp-content/uploads/2018/01/flower-cake-pops-these-flower-cake-pops-are-absolutely-stunning-and-would-be-a-perfect-match-for-a-how-to-make-flower-pot-cake-pops.jpg",
     "cost": 12,
     "category": "pops",
-    "description": "Let these beautiful treats bloom into your senses."
-
+    "description": "Let these beautiful treats bloom into your senses.",
+    "quantity": 0
   },
   {
     "id": 5,
@@ -40,8 +41,8 @@
     "image": "https://cdn.notonthehighstreet.com/fs/ef/0f/888b-fc62-4fdc-9bed-8df5914330d2/normal_unicorn-party-cake-pops.jpg",
     "cost": 12,
     "category": "pops",
-    "description": "Unlike the mythical creature, these pops are very real - and can be YOURS."
-
+    "description": "Unlike the mythical creature, these pops are very real - and can be YOURS.",
+    "quantity": 0
   },
   {
     "id": 6,
@@ -49,7 +50,7 @@
     "image": "http://birthdaycakesideas.info/wp-content/uploads/2018/05/images-outstanding-inspiration-cake-pop-bouquet-incredible-ideas-and-best-pops-gift-for-any.jpg",
     "cost": 12,
     "category": "pops",
-    "description": "Because saying 'I'm sorry' with flowers is so 20th century."
-
+    "description": "Because saying 'I'm sorry' with flowers is so 20th century.",
+    "quantity": 0
   }
 ]

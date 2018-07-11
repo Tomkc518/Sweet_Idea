@@ -69,7 +69,6 @@ h1 {
     position: absolute;
     left: 119px;
     bottom: 20px;
-    
 }
 .btn:focus,.btn:active {
     outline: none !important;

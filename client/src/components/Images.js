@@ -2,9 +2,6 @@ import React from "react";
 import "./component.css";
 
 const Images = props => (
-    // <div className="img-thumbnail col-4">
-    //     <img alt={props.name} src={props.image} cost={props.cost}/>
-    // </div>
     <div className="col mb-4">
         <div className="card">
             <img alt={props.name} src={props.image} cost={props.cost} description={props.description} className="card-image"/>
@@ -14,7 +11,7 @@ const Images = props => (
                     {props.description}
                 </p>
                 <div className="cost-style mb-3">${props.cost} per dozen</div>
-                <a href="#!" className="btn btn-primary add-to-shopping-cart-btn" onClick={() => props.addItemToCart(props.name, props.image, props.id)}>Add to Cart</a>
+                <a href="#!" className="btn btn-primary add-to-shopping-cart-btn" onClick={() => props.addItemToCart(props.name, props.image, props.id, props.quantity)}>Add to Cart</a>
             </div>
         </div>
     </div>
