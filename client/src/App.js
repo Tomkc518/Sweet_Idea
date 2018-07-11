@@ -182,6 +182,7 @@ class App extends Component {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/x-www-form-urlencoded'
       },
       body: JSON.stringify({
         firstName: signUpFirstName,
@@ -224,7 +225,7 @@ class App extends Component {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/x-www-form-urlencoded'
       },
       body: JSON.stringify({
         email: signInEmail,
