@@ -5,8 +5,8 @@
     "image": "https://www.deleukstetaartenshop.com/media/catalog/product/cache/2/image/200x180/08f5bd1ea19936551f6f0408f06686e9/p/a/pastel-kerst-koekjes_1.jpg",
     "cost": 12,
     "category": "cookies",
-    "description": "The perfect treat for any holiday or festivity."
-
+    "description": "The perfect treat for any holiday or festivity.",
+    "quantity": 0
   },
   {
     "id": 2,
@@ -14,7 +14,8 @@
     "image": "https://i.pinimg.com/736x/51/db/f4/51dbf4e1493d059dafbe5c54f18253fa--fancy-cookies-sugar-cookies.jpg",
     "cost": 12,
     "category": "cookies",
-    "description": "Extravagant look, decadent taste."
+    "description": "Extravagant look, decadent taste.",
+    "quantity": 0
 
   },
   {
@@ -23,7 +24,8 @@
     "image": "https://cdn-img-0.wanelo.com/p/846/eab/449/67f6857eb6bdd2c9087a5a3/x354-q80.jpg",
     "cost": 12,
     "category": "cookies",
-    "description": "You'll <3 These flavorful cookies."
+    "description": "You'll <3 These flavorful cookies.",
+    "quantity": 0
 
   },
   {
@@ -32,7 +34,8 @@
     "image": "https://jerlynfoodfanatic.files.wordpress.com/2016/12/fb_img_1481536115790.jpg",
     "cost": 12,
     "category": "cookies",
-    "description": "These tie-dyed Macarons will give you a trip."
+    "description": "These tie-dyed Macarons will give you a trip.",
+    "quantity": 0
 
   },
   {
@@ -41,7 +44,8 @@
     "image": "https://s-media-cache-ak0.pinimg.com/originals/e9/d6/19/e9d619a898623f6d658a1fc283361d30.jpg",
     "cost": 12,
     "category": "cookies",
-    "description": "Sink your teeth into these nature-inspired treats."
+    "description": "Sink your teeth into these nature-inspired treats.",
+    "quantity": 0
 
   },
   {
@@ -50,7 +54,7 @@
     "image": "https://i.pinimg.com/originals/17/e1/c3/17e1c3c179a6e6882bc03d19b63ddb55.jpg",
     "cost": 12,
     "category": "cookies",
-    "description": "Make these confectios from the Southern Hemisphere part of your snack routine."
-
+    "description": "Make these confectios from the Southern Hemisphere part of your snack routine.",
+    "quantity": 0
   }
 ]

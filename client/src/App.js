@@ -51,6 +51,8 @@ class App extends Component {
     cupcakes,
     cookies,
     cart: [],
+    qty: 0,
+    cartTotal: 0,
     //Authenication
     isLoading: true,
     token: '',
@@ -95,30 +97,33 @@ class App extends Component {
   // Add to cart
   cartItems = [];
   itemName = [];
+  // quantity = 0;
   //create func to map over items in array and call func after the push
-  addItemToCart = (name, image, id) => {
+  addItemToCart = (name, image, id, quantity) => {
     if (this.state.token !== '') {
-        if(this.cartItems.length === 0){
-            this.cartItems.push({
-              name: name,
-              image: image,
-              key: id
-            });
-            this.itemName.push(name);
-            console.log(this.itemName);
-          } else if(this.cartItems.length > 0){
-              if (this.itemName.indexOf(name) === -1){
-                this.cartItems.push({
-                  name: name,
-                  image: image,
-                  key: id
-                });
-                this.itemName.push(name);
-                console.log(this.itemName);
-              }
+      if (this.cartItems.length === 0) {
+        this.cartItems.push({
+          name: name,
+          image: image,
+          key: id,
+          quantity: quantity
+        });
+        this.itemName.push(name);
+        console.log(this.itemName);
+      } else if (this.cartItems.length > 0) {
+        if (this.itemName.indexOf(name) === -1) {
+          this.cartItems.push({
+            name: name,
+            image: image,
+            key: id,
+            quantity: quantity
+          });
+          this.itemName.push(name);
+          console.log(this.itemName);
         }
-        this.setState({ cart: this.cartItems });
-        console.log(this.cartItems);
+      }
+      this.setState({ cart: this.cartItems });
+      console.log(this.cartItems);
     } else {
       this.onOpenModal();
     }
@@ -246,10 +251,10 @@ class App extends Component {
       });
   }
 
-  onLogout(){
-    if (this.state.token === ''){
+  onLogout() {
+    if (this.state.token === '') {
       this.onOpenModal();
-    }else {
+    } else {
       const obj = getFromStorage('sweet_idea_app');
       if (obj && obj.token) {
         const { token } = obj;
@@ -314,6 +319,37 @@ class App extends Component {
     this.setState({ products: this.state.cookies });
   }
 
+  total = 0;
+  increaseQty = (name) => {
+    for (var i = 0; i < this.cartItems.length; i++) {
+      if (this.cartItems[i].name === name) {
+        this.total++;
+        let quantity = this.cartItems[i].quantity;
+        quantity++;
+        this.cartItems[i].quantity = quantity;
+        this.setState({ cart: this.cartItems });
+        this.setState({ cartTotal: this.total * 12 });
+      }
+    }
+  }
+
+
+  decreaseQty = (name) => {
+    for (var i = 0; i < this.cartItems.length; i++) {
+      if (this.cartItems[i].name === name) {
+        if (this.total > 0) {
+          this.total--;
+          let quantity = this.cartItems[i].quantity;
+          quantity--;
+          this.cartItems[i].quantity = quantity;
+          this.setState({ cart: this.cartItems });
+          this.setState({ cartTotal: this.total * 12 });
+        }
+
+      }
+    }
+  }
+
 
   render() {
 
@@ -335,36 +371,39 @@ class App extends Component {
     }
 
     return (
-          // <StripeProvider apiKey="pk_test_dnDzNRnVhvOjUBIdqaxeg6rI">
+      // <StripeProvider apiKey="pk_test_dnDzNRnVhvOjUBIdqaxeg6rI">
       <div className="App">
 
         {/* ----------------------- SHOPPING CART COMPONENT ----------------------- */}
         <div id="sidebar" className="">
-        {/* need to position and make x functional */}
-        <div className="drawer-close" onClick={this.toggleSideBar}>x</div> 
+          {/* need to position and make x functional */}
+          <div className="drawer-close" onClick={this.toggleSideBar}>x</div>
           <div className="mt-4 shopping-cart-header">SHOPPING CART</div>
 
-          
 
 
-            {this.state.cart.map(cart => (
-              <CartItem
-                name={cart.name}
-                image={cart.image}
-                src={cart.image}
-                alt={cart.alt}
-                key={cart.key}
-              />
-            ))}
-         
+
+          {this.state.cart.map(cart => (
+            <CartItem
+              increaseQty={this.increaseQty}
+              decreaseQty={this.decreaseQty}
+              name={cart.name}
+              image={cart.image}
+              src={cart.image}
+              alt={cart.alt}
+              key={cart.key}
+              quantity={cart.quantity}
+            />
+          ))}
 
 
-          
-          
+
+
+          <div className="shopping-cart-total">Total: {this.state.cartTotal}</div>
           <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
-        
 
-         <Checkout 
+
+          <Checkout
             name={'Submit Payment'}
             description={'Sweet Idea Confectionaries'}
             amount={1}
@@ -372,7 +411,7 @@ class App extends Component {
         </div>
 
 
-          {/* <Checkout
+        {/* <Checkout
             name={'Submit Payment'}
             description={'Sweet Idea Confectionaries'}
             amount={1}
@@ -387,7 +426,7 @@ class App extends Component {
 
         {/* I added cookies and cupcakes */}
         <ProductCategoryCard onCategoryPops={this.onCategoryPops} onCategoryCookies={this.onCategoryCookies} onCategoryCupcakes={this.onCategoryCupcakes} />
-        <hr id="divider" className="mb-4"/>
+        <hr id="divider" className="mb-4" />
         <ImageBody>
           {this.state.products.map(products => (
             <Images
@@ -398,6 +437,7 @@ class App extends Component {
               image={products.image}
               cost={products.cost}
               description={products.description}
+              quantity={products.quantity}
             />
           ))}
         </ImageBody>
@@ -466,7 +506,7 @@ class App extends Component {
 
         <Footer />
       </div>
-          // </StripeProvider>
+      // </StripeProvider>
 
     );
   }
