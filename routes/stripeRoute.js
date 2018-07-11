@@ -1,4 +1,4 @@
-const paymentApi = require('./payment');
+const paymentApi = require('./api/payment');
 
 const configureRoutes = app => {
   paymentApi(app);

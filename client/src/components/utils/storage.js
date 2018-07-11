@@ -18,7 +18,6 @@ export function setInStorage(key, obj) {
   if (!key) {
     console.error('Error: Key is Missing');
   }
-
   try {
     localStorage.setItem(key, JSON.stringify(obj));
   } catch (err) {
