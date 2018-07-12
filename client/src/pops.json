@@ -5,7 +5,8 @@
     "image": "https://i.pinimg.com/originals/29/dd/10/29dd10c39826d06be93cfaf2f0099f58.jpg",
     "cost": 12,
     "category": "pops",
-    "description": "Live the life of Luxury, Through this Confection."
+    "description": "Live the life of Luxury, Through this Confection.",
+    "quantity": 0
   },
   {
     "id": 2,
@@ -13,9 +14,8 @@
     "image": "http://pm1.narvii.com/6771/b2b127eb1985d444179633432d742e6e1dc28d46v2_00.jpg",
     "cost": 12,
     "category": "pops",
-    "description": "Relive your childhood, as you consume these sprinkle-covered 'pops."
-
-
+    "description": "Relive your childhood, as you consume these sprinkle-covered 'pops.",
+    "quantity": 0
   },
   {
     "id": 3,

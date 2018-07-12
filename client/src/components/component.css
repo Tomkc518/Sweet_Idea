@@ -74,12 +74,19 @@ h1 {
     outline: none !important;
     box-shadow: none;
  }
- .quantity-selector {
-     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ .cart-btn {
+     border-radius: 50%;
+     width: 25px;
+     height: 25px;
+     line-height: .9;
  }
 
 /* ----------MEDIA QUERIES---------- */
-
+@media only screen and (max-width: 600px) {
+  .card-image {
+      max-width: 400px;;
+  }
+}
 
 @media only screen and (max-width: 600px) {
     .display-1 {
