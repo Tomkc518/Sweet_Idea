@@ -402,13 +402,13 @@ class App extends Component {
 
 
           <div className="shopping-cart-total">Total: {this.state.cartTotal}</div>
-          <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button>
+          {/* <button type="button" className="btn btn-outline-light checkout-button" onClick={this.toggleSideBar}>CHECKOUT!</button> */}
 
 
           <Checkout
             name={'Submit Payment'}
             description={'Sweet Idea Confectionaries'}
-            amount={1}
+            amount={this.state.cartTotal}
           />
         </div>
 
